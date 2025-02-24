@@ -16,6 +16,8 @@ public class Runner {
         printPasswordStrengthMessageEnum(PasswordStrength.VERYSTRONG);
 
 
+
+
     }
 
 
@@ -38,13 +40,21 @@ public class Runner {
 
     public static void printPasswordStrengthMessageEnum(PasswordStrength strength){
         if (strength.equals(PasswordStrength.TOOWEAK)){
-            System.out.println("Your password is extremely weak, almost non-existent");
+            System.out.println("Your password is extremely weak, almost non-existent. Level: " + strength.getLevel()); // Example of the use of field level
+            // OR
+            System.out.println("Level of TOOWEAK: " + strength.getLevel());
         } else if (strength.equals(PasswordStrength.WEAK)) {
             System.out.println("Your password is weak, try harder");
+            System.out.println("Level of WEAK: " + strength.getLevel());
         } else if (strength.equals(PasswordStrength.STRONG)) {
             System.out.println("Your password is strong, but could be better");
+            System.out.println("Level of STRONG: " + strength.getLevel());
         } else if (strength.equals(PasswordStrength.VERYSTRONG)) {
             System.out.println("Your password is very strong. Well done!");
+            System.out.println("Level of VERYSTRONG: " + strength.getLevel());
         }
+
+        System.out.println("Enum order: " + strength.ordinal());
+        System.out.println("Enum name: " + strength.name());
     }
 }
