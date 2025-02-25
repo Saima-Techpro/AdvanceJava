@@ -17,11 +17,14 @@ public class ThreadCreationWays {
         thread1.setName("Bob");
 
 
-        // 2nd way: First approach: Runnable interface
+        // 2nd way: First approach: using Runnable interface (it's a functional interface)
+
+        // Runnable interface can be implemented through normal Java class
+        // run() method is the task in the Runnable interface to be implemented by the class
 
         Runnable runnable = new MyRunnable(); // Create a runnable object that implements Runnable interface
         Thread thread2 = new Thread(runnable); // Pass the object in Thread creation
-        thread2. start();
+        thread2. start(); // start() method starts the thread
         thread2.setName("Saima");
 
         // Until this line, we have three active threads in this class => main, bob, Thread-1
@@ -29,7 +32,7 @@ public class ThreadCreationWays {
 
         // 2nd way: Second approach: Using Anonymous class
         // More practical (without creating a runnable class and creating its object separately like MyRunnable class)
-        Thread thread3 = new Thread(new Runnable() { // can be replaced with lambda
+        Thread thread3 = new Thread(new Runnable() { // creating runnable object as a parameter .... can be replaced with lambda
             @Override
             public void run() {
                 System.out.println("Working thread: "+ Thread.currentThread().getName());
